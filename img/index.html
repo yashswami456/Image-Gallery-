@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Sheet — A Photography Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-head">
+    <div class="site-head__mark">
+      <span class="site-head__dot"></span>
+      <span class="site-head__title">Contact&nbsp;Sheet</span>
+    </div>
+    <p class="site-head__sub">a wall of frames, sorted by eye</p>
+  </header>
+
+  <nav class="filters" aria-label="Filter gallery by category">
+    <button class="filters__btn is-active" data-filter="all">
+      <span class="filters__num">00</span> All Frames
+    </button>
+    <button class="filters__btn" data-filter="architecture">
+      <span class="filters__num">01</span> Architecture
+    </button>
+    <button class="filters__btn" data-filter="nature">
+      <span class="filters__num">02</span> Nature
+    </button>
+    <button class="filters__btn" data-filter="street">
+      <span class="filters__num">03</span> Street
+    </button>
+    <button class="filters__btn" data-filter="portrait">
+      <span class="filters__num">04</span> Portrait
+    </button>
+  </nav>
+
+  <main class="wall" id="wall">
+    <!-- Frames are injected by gallery.js from the DATA array -->
+  </main>
+
+  <footer class="site-foot">
+    <p>Press <kbd>←</kbd> <kbd>→</kbd> to move between frames, <kbd>Esc</kbd> to close.</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox__scrim" data-close></div>
+
+    <button class="lightbox__close" data-close aria-label="Close viewer">
+      <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+
+    <button class="lightbox__nav lightbox__nav--prev" id="prevBtn" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" width="26" height="26"><path d="M15 4L7 12L15 20" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <figure class="lightbox__stage">
+      <img class="lightbox__img" id="lightboxImg" src="" alt="">
+      <figcaption class="lightbox__caption">
+        <span class="lightbox__frame-index" id="frameIndex">frame_00</span>
+        <span class="lightbox__title" id="lightboxTitle"></span>
+        <span class="lightbox__category" id="lightboxCategory"></span>
+      </figcaption>
+    </figure>
+
+    <button class="lightbox__nav lightbox__nav--next" id="nextBtn" aria-label="Next image">
+      <svg viewBox="0 0 24 24" width="26" height="26"><path d="M9 4L17 12L9 20" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+<script src="gallery.js"></script>
+</body>
+</html>
